@@ -5,7 +5,7 @@ let resetPass = async () => {
 
   try {
     let response = await fetch(
-      "https://resetpassworddbase.herokuapp.com/user/newPassword",
+      "https://shrouded-chamber-66768.herokuapp.com/user/newPassword",
       {
         method: "POST",
         body: JSON.stringify({
