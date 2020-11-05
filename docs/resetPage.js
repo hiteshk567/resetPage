@@ -4,20 +4,17 @@ let resetPass = async () => {
   let email = document.querySelector("#email").value;
 
   try {
-    let response = await fetch(
-      "https://shrouded-chamber-66768.herokuapp.com/user/newPassword",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          email: email,
-          resetString: randomString,
-          password: newPassword,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    let response = await fetch("http://localhost:3000/user/newPassword", {
+      method: "POST",
+      body: JSON.stringify({
+        email: email,
+        resetString: randomString,
+        password: newPassword,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     let responseData = await response.json();
     alert(responseData.message);
   } catch (error) {
