@@ -1,13 +1,11 @@
 let resetPass = async () => {
   let randomString = document.querySelector("#resetString").value;
   let newPassword = document.querySelector("#newPassword").value;
-  let email = document.querySelector("#email").value;
 
   try {
-    let response = await fetch("http://localhost:3000/user/newPassword", {
+    let response = await fetch("http://localhost:3000/api/user/newPassword", {
       method: "POST",
       body: JSON.stringify({
-        email: email,
         resetString: randomString,
         password: newPassword,
       }),
@@ -18,6 +16,6 @@ let resetPass = async () => {
     let responseData = await response.json();
     alert(responseData.message);
   } catch (error) {
-    console.log(error);
+    alert("Could not change password");
   }
 };
